@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.7/dist/lottie-player.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #232526, #414345);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #232526;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .splash-screen.hidden {
+            display: none;
+        }
+
+        .splash-screen lottie-player {
+            width: 200px;
+            height: 200px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(35, 37, 38, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            z-index: 100;
+            transition: background 0.3s;
+        }
+
+        nav a {
+            margin: 0 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00adb5;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(120deg, #232526, #414345);
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background: #333;
+            border: 1px solid #555;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #232526;
+            color: #fff;
+        }
+
+        a {
+            color: #00adb5;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-screen" id="splash">
+        <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_tll0j4bb.json" background="transparent" speed="1" loop autoplay></lottie-player>
+    </div>
+    <nav id="navbar">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <header>
+        <h1>Your Name</h1>
+        <p>Creative Developer | Building Interactive Experiences</p>
+    </header>
+    <div class="container">
+        <section class="section" id="about">
+            <h2>About Me</h2>
+            <p>Hi! I'm passionate about crafting immersive and interactive web experiences. Let's build something amazing together.</p>
+        </section>
+        <section class="section" id="projects">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <h3>Dynamic 3D Portfolio</h3>
+                    <p>An interactive portfolio featuring 3D elements. <a href="#">View Project</a></p>
+                </div>
+                <div class="project">
+                    <h3>Modern E-commerce</h3>
+                    <p>An e-commerce platform with a sleek design. <a href="#">View Project</a></p>
+                </div>
+                <div class="project">
+                    <h3>Creative Agency Website</h3>
+                    <p>Showcasing vibrant animations and layouts. <a href="#">View Project</a></p>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out at <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
+        </section>
+    </div>
+    <footer>
+        &copy; 2025 Your Name. All Rights Reserved.
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const splash = document.getElementById('splash');
+            setTimeout(() => {
+                splash.classList.add('hidden');
+            }, 2000);
+
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                navbar.style.background = window.scrollY > 50 ? 'rgba(35, 37, 38, 0.95)' : 'rgba(35, 37, 38, 0.8)';
+            });
+        });
+    </script>
+</body>
+</html>
